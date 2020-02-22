@@ -9,49 +9,54 @@ fetch('https://randomuser.me/api?results=12')
 
 //Helper
 const generateHTML = data => {
+  let employees = data;
 const employeeList = document.querySelector('#employees');
-    data.results.forEach(employees => {
+    data.results.forEach(employee => {
     const selectEmployee = document.createElement('div');
     selectEmployee.setAttribute("class", "employee");
     employeeList.appendChild(selectEmployee);
     selectEmployee.innerHTML += `
     <div class="card">
     <div class="card-img-container">
-    <img src="${employees.picture.large}" alt="${employees.name.first}'s profile picture">
+    <img src="${employee.picture.large}" alt="${employee.name.first}'s profile picture">
     </div>
-    <h2>${employees.name.first} ${employees.name.last}</h2>
-    <p>${employees.email}</p>
-    <p>${employees.location.city}</p>
+    <h2>${employee.name.first} ${employee.name.last}</h2>
+    <p>${employee.email}</p>
+    <p>${employee.location.city}</p>
     `;
 });
+
+
+
   employeeList.querySelectorAll('.card').forEach((card, index) => {
+    card.setAttribute('data-index', index);
   card.addEventListener('click', () => {
-    modal(employees[index]);
+    modal(employees, card.getAttribute('data-index'));
    });
   });
 };
 
-generateHTML(employees);
+$("#close").click(function () {
+     $(".modal-container").hide();
 
+ });
 
-const modal = employee => {
-  const modalContainer = document.querySelector('.modal-container');
-  const dob = new Date(Date.parse(generateHTML.dob.date)).toLocaleDateString(navigator.language); // Formats date depending on users locale.
-
+const modal = (data, employees) => {
+const modalContainer = document.querySelector('.modal-container');
+  const dob = new Date(Date.parse(data.results[employees].dob.date)).toLocaleDateString(navigator.language); // Formats date depending on users locale.
   modalContainer.innerHTML = `
     <div class="modal">
       <div class="modal-info-container">
-        <img class="modal-img" src="${employee.picture.large}" alt="${employee.name.first}'s profile picture">
-        <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last}</h3>
-        <p class="modal-text">${employee.email}</p>
-        <p class="modal-text cap">${employee.location.city}</p><hr>
-        <p class="modal-text">${employee.phone}</p>
-        <p class="modal-text cap">${employee.location.street.number} ${employee.location.street.name}, ${employee.location.state} ${employee.location.postcode}</p>
-        <p class="modal-text">Birthday: ${dob}</p>
+        <img class="modal-img" src="${data.results[employees].picture.large}" alt="${data.results[employees].name.first}'s profile picture">
+        <h3 id="name" class="modal-name-cap">${data.results[employees].name.first} ${data.results[employees].name.last}</h3>
+        <p class="close">x</p>
+        <p class="modal-email">${data.results[employees].email}</p>
+        <p class="modal-city-cap">${data.results[employees].location.city}</p><hr>
+        <p class="modal-phone">${data.results[employees].phone}</p>
+        <p class="modal-location-cap">${data.results[employees].location.street.number} ${data.results[employees].location.street.name}, ${data.results[employees].location.state} ${data.results[employees].location.postcode}</p>
+        <p class="modal-birthday">Birthday: ${dob}</p>
       </div>
     </div>
   `;
-
   modalContainer.style.display = 'block';
-
 };
