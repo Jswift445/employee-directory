@@ -3,14 +3,15 @@
 
  .directory {
   font-weight: bold;
-  margin-left: 1px;
+      margin-left: 179px;
 }
 
 
 #employees{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 0fr);
   grid-gap: 30px;
+  margin: 25px 163px;
 }
 
 
