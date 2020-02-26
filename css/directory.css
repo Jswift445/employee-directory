@@ -4,7 +4,7 @@
 
  .directory {
   font-weight: bold;
-      margin-left: 179px;
+  margin: 17px;
 }
 
 
@@ -12,7 +12,7 @@
   display: grid;
   grid-template-columns: repeat(3, 0fr);
   grid-gap: 30px;
-  margin: 25px 163px;
+
 }
 
 
@@ -20,8 +20,7 @@
   border: 1px solid grey;
   border-radius: 10px;
   padding: 7px 0;
-  width: 100%;
-  max-width: 475px;
+  max-width: 410px;
   margin: 10px 10px 20px;
 }
 
@@ -36,7 +35,13 @@ p, h2 {
   margin: -6px 114px 15px 158px;
 }
 
+.name {
+  margin: -6px 37px 15px 158px;
+}
 
+.city {
+  margin: 0px 16% 0px 39%;
+}
 /* The Modal (background) */
 .modal {
   position: fixed; /* Stay in place */
@@ -56,7 +61,7 @@ p, h2 {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 30%;
+  width: 20%;
 }
 
 
@@ -76,31 +81,31 @@ p, h2 {
 
 /*The modal img & text*/
 .modal-img {
-  margin: 25px 36%;
+  margin: 25px 33%;
 }
 
 
 .modal-name-cap {
-      margin: 18px 109px 25px 38%;
+      margin: 18px 11% 25px 33%;
 }
 
 
 .modal-email {
-      margin: 25px 171px;
+        margin: 5% 25%;
 }
 
 .modal-city-cap{
-           margin: 26px 159px 0px 13em;
+               margin: 26px 21% 0px 36%;
 }
 
 
 .modal-phone {
-      margin: 25px 0px 18px 13em
+      margin: 25px 0px 18px 36%;
 }
 .modal-location-cap{
-     margin: 25px 0px 0px 9em;
+    margin: 25px -8% 0px 13%;
 }
 
 .modal-birthday{
-       margin: 25px 0px 0px 12em;
+           margin: 25px 0px 0px 33%;
 }

@@ -20,9 +20,9 @@ const employeeList = document.querySelector('#employees');
     <div class="card-img-container">
     <img src="${employee.picture.large}" alt="${employee.name.first}'s profile picture">
     </div>
-    <h2>${employee.name.first} ${employee.name.last}</h2>
+    <h2 class= "name">${employee.name.first} ${employee.name.last}</h2>
     <p>${employee.email}</p>
-    <p>${employee.location.city}</p>
+    <p class= "city">${employee.location.city}</p>
     `;
 });
 
